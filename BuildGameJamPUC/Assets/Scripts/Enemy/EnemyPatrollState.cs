@@ -25,6 +25,6 @@ public class EnemyPatrollState : IState
 
     void IState.Exit()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

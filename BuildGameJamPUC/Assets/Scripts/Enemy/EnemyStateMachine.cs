@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +8,7 @@ public class EnemyStateMachine : MonoBehaviour
     public Transform[] points;
     public int currentPoint;
     public PlayerMovement player;
+    public float stunDuration = 2;
 
     void Start()
     {
@@ -35,6 +34,10 @@ public class EnemyStateMachine : MonoBehaviour
         if (other.gameObject.CompareTag("PlayerLight"))
         {
             SetState(new EnemyFollowState(this));
+        }
+        else if (other.gameObject.CompareTag("UVLight"))
+        {
+            SetState(new EnemyStunState(this));
         }
     }
 }
