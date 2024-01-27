@@ -3,14 +3,16 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     public float pushForce = 6f;
+    [SerializeField] KeyCode pushKey = KeyCode.LeftShift;
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionStay(Collision collision)
     {
-        if (other.CompareTag("Box"))
+        if (collision.gameObject.CompareTag("Box") && Input.GetKey(pushKey))
         {
-            Rigidbody otherRb = other.GetComponent<Rigidbody>();
+            GameObject collidedObj = collision.gameObject;
+            Rigidbody otherRb = collidedObj.GetComponent<Rigidbody>();
             // Calcula a direção do empurrão
-            Vector3 pushDirection = GetPushDirection(other.transform.position);
+            Vector3 pushDirection = GetPushDirection(collidedObj.transform.position);
 
             otherRb.velocity = pushDirection * pushForce;
         }
