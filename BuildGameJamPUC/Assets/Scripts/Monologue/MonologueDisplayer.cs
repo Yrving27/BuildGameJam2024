@@ -10,8 +10,8 @@ public class MonologueDisplayer : MonoBehaviour
     [SerializeField] GameObject monologuePanel;
     [SerializeField] TMP_Text txt;
     [SerializeField] KeyCode exitKey = KeyCode.Space;
-    private Monologue currentMonologue;
     private MonologueTrigger currentTrigger;
+    public bool isPaused;
 
     private void Awake()
     {
@@ -31,10 +31,10 @@ public class MonologueDisplayer : MonoBehaviour
 
     public void DisplayMonologue(Monologue m, MonologueTrigger t)
     {
-        currentMonologue = m;
         currentTrigger = t;
         txt.text = m.text;
         monologuePanel.SetActive(true);
+        isPaused = true;
     }
 
     public void HideMonologue()
@@ -45,7 +45,7 @@ public class MonologueDisplayer : MonoBehaviour
         {
             currentTrigger.onDismissEvent.Invoke();
         }
-        currentMonologue = null;
         currentTrigger = null;
+        isPaused = false;
     }
 }
