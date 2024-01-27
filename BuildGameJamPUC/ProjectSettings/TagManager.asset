@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerLight
   - enemy
+  - Box
   layers:
   - Default
   - TransparentFX
