@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f78e310973bbc409dadf52a66f2b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  j: 0
+  energia_power: 100
+  energia_total: 100
+  txt_energia: {fileID: 0}
