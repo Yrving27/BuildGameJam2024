@@ -5,9 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public float rotationSpeed = 5f;
 
     private Rigidbody rb;
+
+    [Header("Rotation")]
+    [SerializeField]
+    private float rotationSpeed;
+    private RaycastHit hit;
+    private Ray ray;
+    public LayerMask mask;
+    private Vector3 currentLookTarget = Vector3.zero;
 
     void Start()
     {
@@ -16,37 +23,35 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Obtém os inputs de movimento
+        Movement();
+        Rotation();
+    }
+
+    private void Movement()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // Calcula a direção de movimento
         Vector3 direction = new(horizontal, 0f, vertical);
-        Movement(direction);
-        Rotation(direction);
+
+        rb.velocity = direction * speed;
     }
 
-    private void Movement(Vector3 direction)
+    void Rotation()
     {
-        // Normaliza a direção para manter uma velocidade constante ao mover diagonalmente
-        direction.Normalize();
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction * float.MaxValue, Color.red);
 
-        Vector3 targetPosition = transform.position + direction * speed * Time.deltaTime;
-
-        // Atualiza a posição usando o Rigidbody
-        rb.MovePosition(targetPosition);
-    }
-
-    private void Rotation(Vector3 direction)
-    {
-        // Verifica se há uma direção de movimento significativa
-        if (direction.magnitude >= 0.1f)
+        if (Physics.Raycast(ray, out hit, float.MaxValue, mask, QueryTriggerInteraction.Ignore))
         {
-            // Calcula a rotação desejada
-            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            if (hit.point != currentLookTarget)
+            {
+                currentLookTarget = hit.point;
+                Vector3 position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
 
-            // Interpola suavemente entre a rotação atual e a desejada
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                Quaternion rot = Quaternion.LookRotation(position - transform.position);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * rotationSpeed);
+            }
         }
     }
 }
