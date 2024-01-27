@@ -7,6 +7,15 @@ public class Power_light : MonoBehaviour
 {
     public Light l;
     public bool power;
+    private SphereCollider lightCollider;
+    private float minColliderRange = 3.2f;
+    private float maxColliderRange = 10f;
+
+    private void Start()
+    {
+        lightCollider = l.gameObject.GetComponentInChildren<SphereCollider>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && power == false)
@@ -22,6 +31,7 @@ public class Power_light : MonoBehaviour
     {
         l.range = 25;
         l.intensity = 25;
+        lightCollider.radius = maxColliderRange;
         //if (l.range != 20)
         //{
             
@@ -44,6 +54,10 @@ public class Power_light : MonoBehaviour
             if(l.intensity != 20)
             {
                 l.intensity -= 0.5f;
+            }
+            if(lightCollider.radius > minColliderRange)
+            {
+                lightCollider.radius -= 0.2f;
             }
         }
         else
