@@ -7,6 +7,7 @@ TagManager:
   - PlayerLight
   - enemy
   - Box
+  - Portal
   layers:
   - Default
   - TransparentFX
