@@ -23,8 +23,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Movement();
-        Rotation();
+        if (MonologueDisplayer.instance != null)
+        {
+            if (!MonologueDisplayer.instance.isPaused)
+            {
+                Movement();
+                Rotation();
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
+            }
+        }
     }
 
     private void Movement()

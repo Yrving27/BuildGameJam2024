@@ -53,4 +53,9 @@ public class PlayerActions : MonoBehaviour
 
         return pushDirection;
     }
+
+    public void Test()
+    {
+        Debug.Log("aaaaaaa");
+    }
 }
