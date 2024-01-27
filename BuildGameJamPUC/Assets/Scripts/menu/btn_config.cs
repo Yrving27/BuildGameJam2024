@@ -6,6 +6,7 @@ public class btn_config : MonoBehaviour
 {
     public GameObject panel;
     public GameObject panelPrincipal;
+
     public void PainelConfig()
     {
         panel.SetActive(true);
