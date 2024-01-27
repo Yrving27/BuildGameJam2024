@@ -37,7 +37,7 @@ public class Power_light : MonoBehaviour
 
     public void TiraPower()
     {
-        if (l.range != 10)
+        if (l.range != 8)
         {
             l.range -= 0.5f;
             Invoke("TiraPower", 0.1f);
