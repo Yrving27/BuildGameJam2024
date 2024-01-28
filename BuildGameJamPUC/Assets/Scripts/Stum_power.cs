@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stum_power : MonoBehaviour
 {
+    private AudioSource source;
     public float lightDuration = 2f;
     private new Light light;
     private new BoxCollider collider;
@@ -12,6 +13,7 @@ public class Stum_power : MonoBehaviour
     {
         light = GetComponent<Light>();
         collider = GetComponent<BoxCollider>();
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,6 +22,7 @@ public class Stum_power : MonoBehaviour
         {
             light.enabled = true;
             collider.enabled = true;
+            source.Play();
             Invoke("DisableLight", lightDuration);
         }
     }
