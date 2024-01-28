@@ -8,11 +8,19 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] float baitCooldown = 5;
     private float baitTimer;
     [SerializeField] GameObject bait;
+    private PlayerSounds playerSounds;
+    [SerializeField] AudioClip baitSound;
+
+    private void Start()
+    {
+        playerSounds = GetComponent<PlayerSounds>();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && Time.time > baitTimer)
         {
+            playerSounds.PlayAudio(baitSound);
             Destroy(Instantiate(bait, transform.position, Quaternion.identity), 10);
             baitTimer = Time.time + baitCooldown;
         }
