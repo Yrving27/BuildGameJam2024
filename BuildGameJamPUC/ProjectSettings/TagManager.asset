@@ -9,6 +9,7 @@ TagManager:
   - Box
   - Portal
   - UVLight
+  - Bait
   layers:
   - Default
   - TransparentFX

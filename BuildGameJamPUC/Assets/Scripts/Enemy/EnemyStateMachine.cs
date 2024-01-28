@@ -41,6 +41,10 @@ public class EnemyStateMachine : MonoBehaviour
         {
             SetState(new EnemyStunState(this));
         }
+        else if (other.CompareTag("Bait"))
+        {
+            SetState(new EnemyBaitState(this, other.transform));
+        }
     }
 
     void Footsteps()

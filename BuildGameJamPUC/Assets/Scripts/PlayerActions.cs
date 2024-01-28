@@ -4,6 +4,18 @@ public class PlayerActions : MonoBehaviour
 {
     public float pushForce = 6f;
     [SerializeField] KeyCode pushKey = KeyCode.LeftShift;
+    [SerializeField] float baitCooldown = 5;
+    private float baitTimer;
+    [SerializeField] GameObject bait;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && Time.time > baitTimer)
+        {
+            Instantiate(bait, transform.position, Quaternion.identity);
+            baitTimer = Time.time + baitCooldown;
+        }
+    }
 
     void OnCollisionStay(Collision collision)
     {
