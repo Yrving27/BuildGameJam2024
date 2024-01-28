@@ -10,7 +10,7 @@ public class EnemyFollowState : IState
 
     public void Enter()
     {
-        
+        enemy.sounds.PlayAudio(enemy.followSound);
     }
 
     public void Update()

@@ -29,12 +29,12 @@ public class PlayerActions : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Enemy")
-        {
-            string NomeScene = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(NomeScene);
-        }
-        else if (collision.gameObject.CompareTag("Box"))
+        //if (collision.gameObject.name == "Enemy")
+        //{
+        //    string NomeScene = SceneManager.GetActiveScene().name;
+        //    SceneManager.LoadScene(NomeScene);
+        //}
+        if (collision.gameObject.CompareTag("Box"))
         {
             
         }

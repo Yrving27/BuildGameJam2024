@@ -10,10 +10,14 @@ public class EnemyStateMachine : MonoBehaviour
     public PlayerMovement player;
     public float stunDuration = 2;
     public GameObject footstep;
+    public EnemySounds sounds;
+    [SerializeField] AudioClip screamSound;
+    public AudioClip followSound;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        sounds = GetComponent<EnemySounds>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         SetState(new EnemyPatrollState(this));
         InvokeRepeating("Footsteps", 1, 1);
@@ -48,11 +52,15 @@ public class EnemyStateMachine : MonoBehaviour
         else if (other.CompareTag("Player"))
         {
             GameOver.instance.SetPanelActive(true);
+            sounds.PlayAudio(screamSound);
         }
     }
 
     void Footsteps()
     {
-        Destroy(Instantiate(footstep, transform.position, Quaternion.identity), 2);
+        if(agent.velocity != Vector3.zero)
+        {
+            Destroy(Instantiate(footstep, transform.position, Quaternion.identity), 2);
+        }
     }
 }
