@@ -13,6 +13,7 @@ public class MonologueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             MonologueDisplayer.instance.DisplayMonologue(monologue, this);
+            Destroy(gameObject);
         }
     }
 }

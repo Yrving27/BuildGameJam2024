@@ -1,46 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class Mixer_controller : MonoBehaviour
 {
+    public AudioMixer mixer;
+    public Slider generalVol;
+    public Slider fxVol;
+    public Slider musicVol;
 
-    public static Mixer_controller Mixer;
-    public Slider SliderPrincipal;
-    public AudioSource music;
-    public AudioSource powerLight;
-    public AudioSource click;
-    private void Awake()
+    private void OnEnable()
     {
-        if (Mixer == null)
+        float masterValue;
+        if (mixer.GetFloat("Master", out masterValue))
         {
-            Mixer = this;
-            DontDestroyOnLoad(this.gameObject);
+            generalVol.value = masterValue;
         }
-        else
+
+        float musicValue;
+        if (mixer.GetFloat("Music", out musicValue))
         {
-            Destroy(this.gameObject);
+            musicVol.value = musicValue;
         }
-    }
 
-    private void Update()
-    {
-        if(SliderPrincipal != null)
+        float fxValue;
+        if (mixer.GetFloat("Effects", out fxValue))
         {
-            music.volume = SliderPrincipal.value;
+            fxVol.value = fxValue;
         }
     }
 
-    public void PowerLight()
+    public void GeneralVolChange()
     {
-        powerLight.Play();
+        mixer.SetFloat("Master", generalVol.value);
     }
 
-    public void Click_Button()
+    public void MusicVolChange()
     {
-        click.Play();
+        mixer.SetFloat("Music", musicVol.value);
     }
 
-
+    public void FXVolChange()
+    {
+        mixer.SetFloat("Effects", fxVol.value);
+    }
 }

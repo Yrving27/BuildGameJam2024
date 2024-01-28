@@ -15,7 +15,6 @@ public class btn_credito : MonoBehaviour
         g2.SetActive(false);
         g1.SetActive(true);
         ima.SetNativeSize();
-        Mixer_controller.Mixer.Click_Button();
     }
     public void setaE()
     {
@@ -23,7 +22,6 @@ public class btn_credito : MonoBehaviour
         g2.SetActive(true);
         g1.SetActive(false);
         ima.SetNativeSize();
-        Mixer_controller.Mixer.Click_Button();
     }
 
 }

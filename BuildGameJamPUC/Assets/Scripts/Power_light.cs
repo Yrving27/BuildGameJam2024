@@ -26,7 +26,6 @@ public class Power_light : MonoBehaviour
             power = true;
             source.Play();
             Game_controller.instance.DiminuiEnergia();
-            Mixer_controller.Mixer.PowerLight();
         }
     }
 
