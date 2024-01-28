@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8665921322996745817}
   - component: {fileID: 5759068261748263420}
   - component: {fileID: 7496423393519713590}
+  - component: {fileID: -6599487395207473289}
   m_Layer: 0
   m_Name: caixa
   m_TagString: Untagged
@@ -83,3 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &-6599487395207473289
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288973159252892899}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.012}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.012}
+  m_TimeToStationary: 0.5
