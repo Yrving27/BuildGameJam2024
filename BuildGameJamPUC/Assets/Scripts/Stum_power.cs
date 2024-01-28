@@ -6,8 +6,8 @@ public class Stum_power : MonoBehaviour
 {
     private AudioSource source;
     public float lightDuration = 2f;
-    private new Light light;
-    private new BoxCollider collider;
+    private Light light;
+    private BoxCollider collider;
 
     private void Start()
     {

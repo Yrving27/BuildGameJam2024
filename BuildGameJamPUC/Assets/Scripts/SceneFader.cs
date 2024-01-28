@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEditor.SearchService;
 
 public class SceneFader : MonoBehaviour {
 
