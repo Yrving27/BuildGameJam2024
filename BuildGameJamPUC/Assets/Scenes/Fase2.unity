@@ -1155,6 +1155,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6288051131025185438, guid: 1a5541dba73ade648a55f5347cc5b540,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288051131211816962, guid: 1a5541dba73ade648a55f5347cc5b540,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6288051131724362870, guid: 1a5541dba73ade648a55f5347cc5b540,
         type: 3}
       propertyPath: m_Name
@@ -1215,6 +1225,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6288051132383722994, guid: 1a5541dba73ade648a55f5347cc5b540,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288051132383722994, guid: 1a5541dba73ade648a55f5347cc5b540,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 618a817adae144745b13296f14d517c3,
+        type: 3}
+    - target: {fileID: 6288051132383722995, guid: 1a5541dba73ade648a55f5347cc5b540,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288051132383722995, guid: 1a5541dba73ade648a55f5347cc5b540,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6813bbf49ae719d4a9d60924602ba269,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a5541dba73ade648a55f5347cc5b540, type: 3}
 --- !u!4 &43157342 stripped
@@ -40101,6 +40133,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 737619222}
+    - target: {fileID: 2560258355064841727, guid: ba00f24d22373a9419048ce628202d6d,
+        type: 3}
+      propertyPath: currentPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2560258355064841727, guid: ba00f24d22373a9419048ce628202d6d,
         type: 3}
       propertyPath: points.Array.size
