@@ -17,12 +17,12 @@ public class Game_controller : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
             Destroy(this.gameObject);
         }
+        DontDestroyOnLoad(this.gameObject);
     }
     
     public void DiminuiEnergia()

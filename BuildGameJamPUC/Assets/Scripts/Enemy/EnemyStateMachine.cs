@@ -45,6 +45,10 @@ public class EnemyStateMachine : MonoBehaviour
         {
             SetState(new EnemyBaitState(this, other.transform));
         }
+        //else if (other.CompareTag("Player"))
+        //{
+        //    GameOver.instance.SetPanelActive(true);
+        //}
     }
 
     void Footsteps()

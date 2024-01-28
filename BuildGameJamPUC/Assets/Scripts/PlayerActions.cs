@@ -26,8 +26,9 @@ public class PlayerActions : MonoBehaviour
             Rigidbody otherRb = collidedObj.GetComponent<Rigidbody>();
             // Calcula a direção do empurrão
             Vector3 pushDirection = GetPushDirection(collidedObj.transform.position);
-
-            otherRb.velocity = pushDirection * pushForce;
+            Vector3 newPosition = collidedObj.transform.position + pushDirection;
+            otherRb.MovePosition(newPosition);
+            //otherRb.velocity = pushDirection * pushForce;
         }
     }
 
@@ -71,9 +72,7 @@ public class PlayerActions : MonoBehaviour
             pushDirection.x = 0f; // Limita a direção horizontal
         }
 
-        pushDirection.y = 0;
-
-        return pushDirection;
+        return pushDirection * 0.2f;
     }
 
     public void Test()
