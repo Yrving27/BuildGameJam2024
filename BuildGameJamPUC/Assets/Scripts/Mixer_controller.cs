@@ -9,6 +9,8 @@ public class Mixer_controller : MonoBehaviour
     public static Mixer_controller Mixer;
     public Slider SliderPrincipal;
     public AudioSource music;
+    public AudioSource powerLight;
+    public AudioSource click;
     private void Awake()
     {
         if (Mixer == null)
@@ -28,6 +30,16 @@ public class Mixer_controller : MonoBehaviour
         {
             music.volume = SliderPrincipal.value;
         }
+    }
+
+    public void PowerLight()
+    {
+        powerLight.Play();
+    }
+
+    public void Click_Button()
+    {
+        click.Play();
     }
 
 

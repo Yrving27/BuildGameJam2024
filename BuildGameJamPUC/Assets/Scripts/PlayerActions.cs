@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerActions : MonoBehaviour
 {
@@ -36,6 +37,15 @@ public class PlayerActions : MonoBehaviour
         {
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
             otherRb.velocity = Vector3.zero;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "Enemy")
+        {
+            string NomeScene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(NomeScene);
         }
     }
 
