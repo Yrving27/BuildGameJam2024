@@ -13,6 +13,7 @@ public class EnemyStateMachine : MonoBehaviour
     public EnemySounds sounds;
     [SerializeField] AudioClip screamSound;
     public AudioClip followSound;
+    public Animator anim;
 
     void Start()
     {
