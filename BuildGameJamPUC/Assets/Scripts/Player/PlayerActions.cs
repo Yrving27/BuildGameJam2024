@@ -18,11 +18,12 @@ public class PlayerActions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && Time.time > baitTimer)
+        if (Input.GetKeyDown(KeyCode.Q) && Time.time > baitTimer && Game_controller.instance.Lamparina == true)
         {
             playerSounds.PlayAudio(baitSound);
             Destroy(Instantiate(bait, transform.position, Quaternion.identity), 10);
             baitTimer = Time.time + baitCooldown;
+            Game_controller.instance.SoltaEnergy();
         }
     }
 
@@ -41,7 +42,7 @@ public class PlayerActions : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Box") && Input.GetKey(pushKey))
+        if (collision.gameObject.CompareTag("Box") && Input.GetKey(pushKey) && Game_controller.instance.Lamparina == true)
         {
             GameObject collidedObj = collision.gameObject;
             Rigidbody otherRb = collidedObj.GetComponent<Rigidbody>();

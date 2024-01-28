@@ -5,7 +5,7 @@ using TMPro;
 
 public class txt_power : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         if(Game_controller.instance.txt_energia == null)
         {

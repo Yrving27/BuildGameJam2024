@@ -12,6 +12,8 @@ public class Game_controller : MonoBehaviour
     public int energia_total = 100;
 
     public TMP_Text txt_energia;
+
+    public bool Lamparina = false;
     private void Awake()
     {
         if(instance == null)
@@ -28,6 +30,13 @@ public class Game_controller : MonoBehaviour
     public void DiminuiEnergia()
     {
         int v = Random.Range(8, 12);
+        energia_total -= v;
+        menos();
+    }
+
+    public void SoltaEnergy()
+    {
+        int v = Random.Range(10, 17);
         energia_total -= v;
         menos();
     }
