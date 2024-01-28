@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Power_light : MonoBehaviour
 {
+    private AudioSource source;
     public Light l;
     public bool power;
     private SphereCollider lightCollider;
@@ -13,7 +14,8 @@ public class Power_light : MonoBehaviour
 
     private void Start()
     {
-        lightCollider = l.gameObject.GetComponentInChildren<SphereCollider>();
+        lightCollider = l.gameObject.GetComponent<SphereCollider>();
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -22,6 +24,7 @@ public class Power_light : MonoBehaviour
         {
             PowerLight();
             power = true;
+            source.Play();
             Game_controller.instance.DiminuiEnergia();
             Mixer_controller.Mixer.PowerLight();
         }

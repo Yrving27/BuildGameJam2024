@@ -20,7 +20,7 @@ public class EnemyBaitState : IState
 
     public void Update()
     {
-        if(Vector3.Distance(enemy.transform.position, bait.position) < 0.5f)
+        if(Vector3.Distance(enemy.transform.position, bait.position) < 1f)
         {
             waitTimer += Time.deltaTime;
             if(waitTimer > waitTime)
