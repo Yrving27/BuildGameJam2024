@@ -281,6 +281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   pushKey: 304
+  baitCooldown: 5
+  bait: {fileID: 7863501756495224695, guid: 8e747e64c9cb38a47bff19ba95986e1c, type: 3}
 --- !u!114 &737619220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,13 +391,15 @@ GameObject:
   - component: {fileID: 2707577361798033606}
   - component: {fileID: 5114948873464228805}
   - component: {fileID: 5461717645232564413}
+  - component: {fileID: 1027083625}
+  - component: {fileID: 1027083621}
   m_Layer: 0
   m_Name: UVLight
   m_TagString: UVLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2707577361798033606
 Transform:
   m_ObjectHideFlags: 0
@@ -403,14 +407,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2639149272418700665}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 336103531047986447}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &5114948873464228805
 Light:
   m_ObjectHideFlags: 0
@@ -418,7 +422,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2639149272418700665}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -493,3 +497,29 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!65 &1027083625
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639149272418700665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.59, y: 0.57, z: 5.87}
+  m_Center: {x: 0, y: 0.63, z: 3.21}
+--- !u!114 &1027083621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639149272418700665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9bf62e0bced604c89f8ece0ec67d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDuration: 2

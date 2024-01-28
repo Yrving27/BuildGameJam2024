@@ -13,7 +13,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && Time.time > baitTimer)
         {
-            Instantiate(bait, transform.position, Quaternion.identity);
+            Destroy(Instantiate(bait, transform.position, Quaternion.identity), 10);
             baitTimer = Time.time + baitCooldown;
         }
     }
