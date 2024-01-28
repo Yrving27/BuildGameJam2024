@@ -15,10 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private Ray ray;
     public LayerMask mask;
     private Vector3 currentLookTarget = Vector3.zero;
+    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -45,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = new(horizontal, 0f, vertical);
 
         rb.velocity = direction * speed;
+
+        Vector3 worldDirection = transform.InverseTransformDirection(direction);
+        //Vector3 worldDirection = transform.TransformDirection(direction);
+        anim.SetFloat("Horizontal", worldDirection.z);
+        anim.SetFloat("Vertical", worldDirection.x);
     }
 
     void Rotation()
