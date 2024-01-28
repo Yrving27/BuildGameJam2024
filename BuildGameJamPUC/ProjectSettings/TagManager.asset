@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - Box
   - Portal
+  - UVLight
   layers:
   - Default
   - TransparentFX

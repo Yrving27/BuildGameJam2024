@@ -9,12 +9,14 @@ public class EnemyStateMachine : MonoBehaviour
     public int currentPoint;
     public PlayerMovement player;
     public float stunDuration = 2;
+    public GameObject footstep;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         SetState(new EnemyPatrollState(this));
+        InvokeRepeating("Footsteps", 1, 1);
     }
 
     void Update()
@@ -39,5 +41,10 @@ public class EnemyStateMachine : MonoBehaviour
         {
             SetState(new EnemyStunState(this));
         }
+    }
+
+    void Footsteps()
+    {
+        Destroy(Instantiate(footstep, transform.position, Quaternion.identity), 2);
     }
 }

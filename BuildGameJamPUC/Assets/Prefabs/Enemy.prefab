@@ -122,6 +122,8 @@ MonoBehaviour:
   currentPoint: 0
   player: {fileID: 0}
   stunDuration: 2
+  footstep: {fileID: 3608701202303772139, guid: 408d46f6e74e23b4fb6852d8d964a108,
+    type: 3}
 --- !u!195 &2560258355064841712
 NavMeshAgent:
   m_ObjectHideFlags: 0
