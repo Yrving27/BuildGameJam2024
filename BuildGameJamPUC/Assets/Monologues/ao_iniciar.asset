@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22fe7b4674ab514a83a3b064dbaf12e, type: 3}
+  m_Name: ao_iniciar
+  m_EditorClassIdentifier: 
+  text: "O doce obl\xEDvio, quem eu deveria ser hoje? Um h\xF3spede inoportuno...
+    Hm... Um catador de estrelas? Talvez... Algo, eu deveria ser algo. "

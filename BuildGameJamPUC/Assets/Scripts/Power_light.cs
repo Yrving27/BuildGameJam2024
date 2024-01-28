@@ -18,7 +18,7 @@ public class Power_light : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && power == false)
+        if (Input.GetKeyDown(KeyCode.Space) && power == false && Game_controller.instance.Lamparina == true)
         {
             PowerLight();
             power = true;
@@ -48,7 +48,7 @@ public class Power_light : MonoBehaviour
 
     public void TiraPower()
     {
-        if (l.range != 8)
+        if (l.range != 10)
         {
             l.range -= 0.5f;
             Invoke("TiraPower", 0.1f);
