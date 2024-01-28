@@ -8,8 +8,8 @@ public class Lamparina : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Power_light>().l.intensity = 20;
-            collision.gameObject.GetComponent<Power_light>().l.range = 9.5f;
+            collision.gameObject.GetComponentInChildren<Power_light>().l.intensity = 20;
+            collision.gameObject.GetComponentInChildren<Power_light>().l.range = 9.5f;
             Game_controller.instance.Lamparina = true;
             Destroy(this.gameObject);
         }
