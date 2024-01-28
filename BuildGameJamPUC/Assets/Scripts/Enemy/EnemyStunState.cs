@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyStunState : IState
 {
     private EnemyStateMachine enemy;
-    private float stunTime;
+    private float stunTime = 2;
 
     public EnemyStunState(EnemyStateMachine enemy)
     {
