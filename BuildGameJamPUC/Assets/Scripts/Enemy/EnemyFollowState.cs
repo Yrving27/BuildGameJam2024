@@ -11,6 +11,7 @@ public class EnemyFollowState : IState
     public void Enter()
     {
         enemy.sounds.PlayAudio(enemy.followSound);
+        enemy.anim.SetBool("Following", true);
     }
 
     public void Update()
@@ -22,12 +23,12 @@ public class EnemyFollowState : IState
         }
         else
         {
-            Debug.Log("Hit no player");
+            enemy.agent.SetDestination(enemy.transform.position);
         }
     }
 
     public void Exit()
     {
-        
+        enemy.anim.SetBool("Following", false);
     }
 }
