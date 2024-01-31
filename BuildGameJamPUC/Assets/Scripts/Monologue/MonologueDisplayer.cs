@@ -10,6 +10,7 @@ public class MonologueDisplayer : MonoBehaviour
     [SerializeField] GameObject monologuePanel;
     [SerializeField] TMP_Text txt;
     [SerializeField] KeyCode exitKey = KeyCode.Space;
+    [SerializeField] float typeDelay = 0.05f;
     private MonologueTrigger currentTrigger;
     public bool isPaused;
 
@@ -32,9 +33,19 @@ public class MonologueDisplayer : MonoBehaviour
     public void DisplayMonologue(Monologue m, MonologueTrigger t)
     {
         currentTrigger = t;
-        txt.text = m.text;
+        StartCoroutine(DisplayText(m.text));
         monologuePanel.SetActive(true);
         isPaused = true;
+    }
+
+    private IEnumerator DisplayText(string text)
+    {
+        txt.text = "";
+        foreach (char letter in text)
+        {
+            txt.text += letter;
+            yield return new WaitForSeconds(typeDelay);
+        }
     }
 
     public void HideMonologue()
