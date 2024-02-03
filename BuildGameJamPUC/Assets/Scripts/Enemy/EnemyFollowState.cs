@@ -17,7 +17,7 @@ public class EnemyFollowState : IState
     public void Update()
     {
         if (Vector3.Distance(enemy.transform.position, enemy.player.transform.position) > 0.5 
-            && !MonologueDisplayer.instance.isPaused)
+            && !Game_controller.instance.isPaused)
         {
             enemy.agent.SetDestination(enemy.player.transform.position);
         }

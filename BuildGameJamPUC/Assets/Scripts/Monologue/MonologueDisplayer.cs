@@ -37,7 +37,7 @@ public class MonologueDisplayer : MonoBehaviour
         currentTrigger = t;
         StartCoroutine(DisplayText(m.text));
         monologuePanel.SetActive(true);
-        isPaused = true;
+        Game_controller.instance.SetPause(true);
     }
 
     private IEnumerator DisplayText(string text)
@@ -69,6 +69,6 @@ public class MonologueDisplayer : MonoBehaviour
             currentTrigger.onDismissEvent.Invoke();
         }
         currentTrigger = null;
-        isPaused = false;
+        Game_controller.instance.SetPause(false);
     }
 }

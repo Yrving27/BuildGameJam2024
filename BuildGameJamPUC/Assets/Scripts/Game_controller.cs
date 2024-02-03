@@ -14,6 +14,7 @@ public class Game_controller : MonoBehaviour
     public TMP_Text txt_energia;
 
     public bool Lamparina = false;
+    public bool isPaused;
     private void Awake()
     {
         if(instance == null)
@@ -25,6 +26,11 @@ public class Game_controller : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void SetPause(bool pause)
+    {
+        isPaused = pause;
     }
     
     public void DiminuiEnergia()

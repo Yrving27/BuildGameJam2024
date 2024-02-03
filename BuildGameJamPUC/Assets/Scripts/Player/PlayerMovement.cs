@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (MonologueDisplayer.instance != null)
         {
-            if (!MonologueDisplayer.instance.isPaused)
+            if (!Game_controller.instance.isPaused)
             {
                 Movement();
                 Rotation();
