@@ -21,6 +21,7 @@ public class GameOver : MonoBehaviour
 
     public void SetPanelActive(bool active)
     {
+        Game_controller.instance.SetPause(active);
         panel.SetActive(active);
     }
 }

@@ -13,10 +13,10 @@ public class Btn_esc : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Escape = !Escape;
+            Game_controller.instance.SetPause(Escape);
             if (Escape)
             {
                 panel_esc.SetActive(Escape);
-
                 panel_principal.SetActive(true);
                 panel_configSom.SetActive(false);
             }
