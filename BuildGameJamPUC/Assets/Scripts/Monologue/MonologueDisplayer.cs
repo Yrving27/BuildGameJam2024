@@ -12,14 +12,16 @@ public class MonologueDisplayer : MonoBehaviour
     [SerializeField] KeyCode exitKey = KeyCode.Space;
     [SerializeField] float typeDelay = 0.05f;
     private MonologueTrigger currentTrigger;
+    private string fullText;
     public bool isPaused;
+    private bool isTyping;
 
     private void Awake()
     {
         instance = this;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (monologuePanel.activeSelf)
         {
@@ -40,16 +42,26 @@ public class MonologueDisplayer : MonoBehaviour
 
     private IEnumerator DisplayText(string text)
     {
+        fullText = text;
+        isTyping= true;
         txt.text = "";
         foreach (char letter in text)
         {
             txt.text += letter;
             yield return new WaitForSeconds(typeDelay);
         }
+        isTyping= false;
     }
 
     public void HideMonologue()
     {
+        StopAllCoroutines();
+        if (isTyping)
+        {
+            txt.text = fullText;
+            isTyping = false;
+            return;
+        }
         txt.text = "";
         monologuePanel.SetActive(false);
         if(currentTrigger.onDismissEvent != null)
